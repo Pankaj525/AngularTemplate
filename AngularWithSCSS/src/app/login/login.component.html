@@ -1,0 +1,64 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form [formGroup]="userLoginForm" (ngSubmit)="onSubmit()">
+                  <h1>Login</h1>
+                  <p class="text-muted">Sign In to your account</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="email" placeholder="Email" autocomplete="email"
+                      [ngClass]="{'is-invalid': userLoginForm.get('email').errors && 
+                                    (userLoginForm.get('email').touched || userLoginForm.get('email').dirty)}">
+                    <span class="invalid-feedback" *ngIf="userLoginForm.get('email').errors && 
+                                  (userLoginForm.get('email').touched || userLoginForm.get('email').dirty)">
+                      <span *ngIf="userLoginForm.get('email').errors.required">
+                        Email is required.
+                      </span>
+                      <span *ngIf="userLoginForm.get('email').errors.email">Email must be a valid email address</span>
+                    </span>
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                    <input type="password" formControlName="password" class="form-control" placeholder="Password"
+                      autocomplete="current-password" [ngClass]="{'is-invalid': userLoginForm.get('password').errors && 
+                                  (userLoginForm.get('password').touched || userLoginForm.get('password').dirty)}">
+                    <span class="invalid-feedback" *ngIf="userLoginForm.get('password').errors && 
+                                (userLoginForm.get('password').touched || userLoginForm.get('password').dirty)">
+                      <span *ngIf="userLoginForm.get('password').errors.required">
+                        Password is required.
+                      </span>
+                    </span>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="submit" class="btn btn-primary px-4" [disabled]="!userLoginForm.valid">Login</button>
+                    </div>
+                    <div class="col-6 text-right">
+                      <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple">
+ <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
