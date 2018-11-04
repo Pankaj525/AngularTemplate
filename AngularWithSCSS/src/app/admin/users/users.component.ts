@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
+import { ActivatedRoute } from '@angular/router';
+import { UserModel } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private userService: UsersService) { }
+  users:UserModel[];
+  constructor(private route: ActivatedRoute) { 
+    this.users = this.route.snapshot.data['usersList'];
+  }
 
   ngOnInit() {
+    console.log(this.users);
   }
 
 }

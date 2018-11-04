@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { DefaultLayoutComponent } from './containers/default-layout/default-layout.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
@@ -19,6 +18,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './admin/dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'users',
+        loadChildren: './admin/users/users.module#UsersModule'
       },
       {
         path: 'forbidden',

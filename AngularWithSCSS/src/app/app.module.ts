@@ -37,15 +37,14 @@ import {
 } from '@coreui/angular';
 import { RoleGuardGuard } from './role-guard.guard';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { UsersComponent } from './admin/users/users.component';
+import { UsersResolverService } from './admin/users/users-resolver.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DefaultLayoutComponent,
-    ForbiddenComponent,
-    UsersComponent
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +60,9 @@ import { UsersComponent } from './admin/users/users.component';
     NgxSpinnerModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot()
-    
+
   ],
-  providers: [LoginService, AuthGuard,RoleGuardGuard],
+  providers: [LoginService, AuthGuard, RoleGuardGuard, UsersResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

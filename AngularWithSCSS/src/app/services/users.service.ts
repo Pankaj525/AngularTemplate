@@ -24,8 +24,8 @@ export class UsersService {
     return throwError('There is a problem with service. We are notified and working on it. Please try again later.');
   }
 
-  getUsers(): Observable<UserModel> {
-    return this.httpClient.get<UserModel>(this.rootUrl + '/api/User')
+  getUsers(): Observable<UserModel[]> {
+    return this.httpClient.get<UserModel[]>(this.rootUrl + '/api/User')
       .pipe(catchError(this.handleError));
   }
 
