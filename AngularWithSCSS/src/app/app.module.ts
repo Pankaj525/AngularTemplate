@@ -37,13 +37,15 @@ import {
 } from '@coreui/angular';
 import { RoleGuardGuard } from './role-guard.guard';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { UsersComponent } from './admin/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DefaultLayoutComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
