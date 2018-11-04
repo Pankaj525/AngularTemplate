@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
         if (data.Status) {
           localStorage.setItem('isLoggedIn', "true");
           localStorage.setItem('token', data.UserName);
+          localStorage.setItem('userRole', data.UserRole);
           this.router.navigate([this.returnUrl]);
         }
         else {

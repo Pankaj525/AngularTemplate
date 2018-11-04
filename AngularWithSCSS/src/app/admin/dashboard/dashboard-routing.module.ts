@@ -3,13 +3,15 @@ import { Routes,
      RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
+import { RoleGuardGuard } from 'src/app/role-guard.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
+    component: DashboardComponent,canActivate: [RoleGuardGuard], 
     data: {
-      title: 'Dashboard'
+      title: 'Dashboard',
+      expectedRole: 'User'
     }
   }
 ];

@@ -35,12 +35,15 @@ import {
   AppFooterModule,
   AppSidebarModule,
 } from '@coreui/angular';
+import { RoleGuardGuard } from './role-guard.guard';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DefaultLayoutComponent
+    DefaultLayoutComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import {
     TabsModule.forRoot()
     
   ],
-  providers: [LoginService, AuthGuard],
+  providers: [LoginService, AuthGuard,RoleGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

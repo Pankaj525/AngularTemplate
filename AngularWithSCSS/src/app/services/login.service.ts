@@ -9,7 +9,7 @@ import { LoginResponseModel } from '../models/login-response.model';
   providedIn: 'root'
 })
 export class LoginService {
-
+  readonly rootUrl = 'http://www.angularservices.somee.com';
   constructor(private httpClient: HttpClient) { }
 
   private handleError(errorResponse: HttpErrorResponse) {
@@ -23,7 +23,7 @@ export class LoginService {
     return throwError('There is a problem with service. We are notified and working on it. Please try again later.');
   }
   userLogin(loginModel: Login): Observable<LoginResponseModel> {
-    return this.httpClient.post<LoginResponseModel>('http://www.angularservices.somee.com/api/UserLogin', loginModel, {
+    return this.httpClient.post<LoginResponseModel>(this.rootUrl + '/api/UserLogin', loginModel, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
